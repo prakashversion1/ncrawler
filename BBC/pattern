@@ -1,0 +1,5 @@
+/<div class="post"/{
+n
+/<h2>/s/.*<a href="\(.*.html\)".*/\1/p
+}
+
