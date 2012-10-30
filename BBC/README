@@ -6,4 +6,9 @@ http://www.bbc.co.uk/blogs/theeditors/archives.html
 Earliest archive = May 2006
 Total articles: (till  2012)
 
+# Process
+index -> downloads -> articles
 
+index: page with the list of articles ( in this case the articles too problem in extraction )
+download: Indivisual article download in separate folder
+plain: Clean Plain text article
