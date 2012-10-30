@@ -1,5 +1,5 @@
 all:
-	./main.sh
+	./download.sh
 
 clean:
 	rm -f LISTING list

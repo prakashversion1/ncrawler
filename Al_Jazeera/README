@@ -8,4 +8,9 @@ Id = 201082874848848938
 Earliest archive = 10 Dec 2011
 Total articles: 1423 (till Wed Sep 26 10:25:25 NPT 2012)
 
+# Process
+index -> downloads -> articles
 
+index: page with the list of articles ( in this case the articles too problem in extraction )
+download: Indivisual article download in separate folder
+plain: Clean Plain text article
