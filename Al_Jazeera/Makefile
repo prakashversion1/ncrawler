@@ -1,4 +1,10 @@
+none:
+	echo "Try make all"
+
 all:
+	download	
+
+download:
 	./download.sh
 
 clean:

@@ -8,8 +8,8 @@ fi
 
 echo "No of articles found: " `wc -l /tmp/dlink`
 
-mkdir download -p
-cd download
+mkdir downloads -p
+cd downloads
 
 while read i; do
     modi=`basename $i`
