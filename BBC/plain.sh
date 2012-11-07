@@ -1,7 +1,7 @@
 #!/bin/bash
 
-rm -f article.list article.csv
-find downloads/ -name "*.html" >> article.list
+rm -f article.list plain/BBC.csv
+find downloads/ -name "*.html" | sort -rn > article.list
 sed -i 's/downloads\///g; s/.html$//g' article.list
 
 mkdir -p plain
@@ -12,12 +12,10 @@ while read i; do
     mkdir -p $sub 
 
     #meta-data
-#    sed -n ' /class="bbc-st/p' ../downloads/"$i".html > "$i.txt"
-
     sed -n 's/\r//g; /class="post"/,/vcard/p' ../downloads/"$i".html | sed 's/^ *//g; s/\t//g; /^$/d' > /tmp/metatext
     authorpub=`sed -n '/vcard/p' /tmp/metatext | sed 's/<[^>]*>//g'`
-    author=`echo $authorpub | cut -d'|' -f1`
-    date=`echo $authorpub | cut -d',' -f3`
+    author=`echo $authorpub | sed 's/\(.*\) |.*/\1/'`
+    date=`echo $authorpub | sed 's/.*, \(.*\)$/\1/'`
     link=`sed -n '/Comments/p' /tmp/metatext | sed -n 's/.*href="\(.*\)#.*/\1/p'`
     title=`sed '/<h1>/q' /tmp/metatext | sed -n 's/.*<h1>\(.*\)<\/h1>.*/\1/p'`
     echo $title > "$i.txt"
@@ -25,5 +23,5 @@ while read i; do
     echo -e "$author|$date\n" >> "$i.txt"
 
     sed -n 's/\r//g; /class="post_content"/,/class="bbc-st/p' ../downloads/"$i".html | sed 's/<[^>]*>//g' | sed 's/^ *//g; s/\t//g; /^$/d' >> "$i.txt"
-    echo "$title,$author,$date,$link" >> ../article.csv
+    echo -e "$title\t$author\t$date\t$link" >> BBC.csv
 done < ../article.list

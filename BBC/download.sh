@@ -1,8 +1,8 @@
 #!/bin/bash
 
-rm -f index.list
+rm -f download.list
 find index/ -name "*.html" -exec \
-sed -f index.pattern -n {} \; | sort -u >> index.list
+sed -f download.pattern -n {} \; | sort -u >> download.list
 
 mkdir -p downloads/
 cd downloads/
@@ -13,4 +13,4 @@ while read i; do
    cd $sub
    wget -c "$i"
    cd -
-done < ../index.list
+done < ../download.list
