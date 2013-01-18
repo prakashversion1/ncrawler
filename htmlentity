@@ -2,12 +2,12 @@
 
 "	&#34;	&quot;	quotation mark
 '	&#39;	&apos;	apostrophe 
-&	&#38;	&amp;	ampersand
+#&	&#38;	&amp;	ampersand
 <	&#60;	&lt;	less-than
 >	&#62;	&gt;	greater-than
 
 # ISO 8859-1 Symbols
-  	&#160; 	&nbsp; 	non-breaking space
+#  	&#160; 	&nbsp; 	non-breaking space
 ¡ 	&#161; 	&iexcl; 	inverted exclamation mark
 ¢ 	&#162; 	&cent; 	cent
 £ 	&#163; 	&pound; 	pound
@@ -212,13 +212,13 @@
 ƒ 	&#402; 	&fnof; 	f with hook
 ˆ 	&#710; 	&circ; 	modifier letter circumflex accent
 ˜ 	&#732; 	&tilde; 	small tilde
-  	&#8194; 	&ensp; 	en space
-  	&#8195; 	&emsp; 	em space
-  	&#8201; 	&thinsp; 	thin space
-‌ 	&#8204; 	&zwnj; 	zero width non-joiner
-‍ 	&#8205; 	&zwj; 	zero width joiner
-‎ 	&#8206; 	&lrm; 	left-to-right mark
-‏ 	&#8207; 	&rlm; 	right-to-left mark
+#  	&#8194; 	&ensp; 	en space
+#  	&#8195; 	&emsp; 	em space
+#  	&#8201; 	&thinsp; 	thin space
+#‌ 	&#8204; 	&zwnj; 	zero width non-joiner
+#‍ 	&#8205; 	&zwj; 	zero width joiner
+#‎ 	&#8206; 	&lrm; 	left-to-right mark
+#‏ 	&#8207; 	&rlm; 	right-to-left mark
 – 	&#8211; 	&ndash; 	en dash
 — 	&#8212; 	&mdash; 	em dash
 ‘ 	&#8216; 	&lsquo; 	left single quotation mark
@@ -238,7 +238,8 @@
 › 	&#8250; 	&rsaquo; 	single right angle quotation
 ‾ 	&#8254; 	&oline; 	overline
 € 	&#8364; 	&euro; 	euro
-™ 	&#8482; or &#153; 	&trade; 	trademark
+™ 	&#8482; 	&trade; 	trademark
+™ 	&#153;		&trade; 	trademark
 ← 	&#8592; 	&larr; 	left arrow
 ↑ 	&#8593; 	&uarr; 	up arrow
 → 	&#8594; 	&rarr; 	right arrow
@@ -253,4 +254,4 @@
 ♠ 	&#9824; 	&spades; 	spade
 ♣ 	&#9827; 	&clubs; 	club
 ♥ 	&#9829; 	&hearts; 	heart
-♦ 	&#9830; 	&diams; 	diamond
+#♦ 	&#9830; 	&diams; 	diamond
