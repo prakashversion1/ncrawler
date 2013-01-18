@@ -1,27 +1,25 @@
-DIR = `pwd`
-NAME = `basename $DIR`
+NAME=`basename $(PWD)`
 
-none:
-	echo "Try $ make <stuff>"
+index:
+	./index.sh
+	echo -e "`date`\tindex" >> $(NAME).log 
 
-csv:
-	./csv.sh
-
-all:
-	download
-
-download:
+download: downloads index
 	./download.sh
+	echo -e "`date`\tdownload" >> $(NAME).log 
 
-plain:	
+final: downloads
 	./plain.sh
+	echo -e "`date`\tplain" >> $(NAME).log
 
-dist:
-	7z a "`basename $(PWD)`" plain/
+dist: final
+	echo -e "`date`\tcompressed" >> $(NAME).log
+	rm -f "$(NAME).7z"
+	cp "$(NAME).log" final/
+	7z a "$(NAME)" final/
 
-clean:
-	rm -f LISTING list
+clean: final
+	rm -rf final
 
-list:
-	./list.sh > LISTING
-
+reset:
+	rm -rf *.list *.7z final downloads index *.log	

@@ -1,10 +1,14 @@
 #!/bin/bash
 
+# the index should fresh so re-download everything
+rm -fr index
 mkdir index -p
 cd index
 
-#must change the index to follow the next page link
-for i in `seq 1 95`; do
-    wget -c "http://www.aljazeera.com/Services/IncludePart/?T=15&Id=201082874848848938&P=$i&V=2"
+count=1
+while true; do
+    wget "http://www.aljazeera.com/Services/IncludePart/?T=15&Id=201082874848848938&P=$count&V=2" -O "$count.html"
+    grep 'Next </a>' $count.html > /dev/null
+    if [ $? == "1" ]; then break; fi
+    count=$((count+1))
 done
-

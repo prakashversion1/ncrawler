@@ -1,0 +1,2 @@
+s/\r//g
+s/.*<a href="\(.*opinion\/20\(07\|08\|09\|10\|11\|12\).*html\)".*<\/a>/http:\/\/www.aljazeera.com\1/p

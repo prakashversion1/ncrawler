@@ -1,19 +1,22 @@
 #!/bin/bash
 
-if [ -e LISTING ]; then
-    grep "html" LISTING > /tmp/dlink
-else
-    ./list.sh | grep "html" > /tmp/dlink
-fi
+rm -f download.list
+find index/ -name "*.html" -exec \
+      sed -f download.pattern -n {} \; | sort -ur >> download.list
 
-echo "No of articles found: " `wc -l /tmp/dlink`
-
-mkdir downloads -p
+mkdir -p downloads
 cd downloads
 
 while read i; do
-    modi=`basename $i`
-    if [ ! -e "$modi" ]; then
-	wget -c  http://www.aljazeera.com"$i";
+    sub=`echo $i | sed 's/.*\([0-9]\{4\}\/[0-9]\{2\}\).*/\1/g'`
+    name=`basename $i`
+
+    mkdir -p $sub
+
+    cd $sub
+    echo $PWD
+    if [ ! -e "$name" ]; then
+    	wget $i
     fi
-done < /tmp/dlink
+    cd - > /dev/null
+done < ../download.list
