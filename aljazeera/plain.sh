@@ -1,6 +1,8 @@
 #!/bin/bash
 
 WD="$PWD"
+NAME=$(basename $PWD)
+
 rm -fr final
 mkdir -p final
 cd final
@@ -26,8 +28,8 @@ for i in ../downloads/*/*/*; do
     echo $i
     echo -e "$title\n$author\n$date\nhttp://www.aljazeera.com/indepth/opinion/$sub/$name.html\n" > $sub/$name.txt
     sed -n -f ../plain.pattern $i | sed -f "$WD/../ehtml.pattern" >> $sub/$name.txt    
-    echo -e "$title\t$author\t$date\t$name" >> Al_Jazeera.csv
+    echo -e "$title\t$author\t$date\t$name" >> "$NAME.csv"
 done
 
 # special case
-sed 's/\t\t/\t/g' -i Al_Jazeera.csv
+sed 's/\t\t/\t/g' -i "$NAME.csv"
