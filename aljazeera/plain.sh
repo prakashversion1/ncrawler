@@ -26,7 +26,7 @@ for i in ../downloads/*/*/*; do
     echo $i
     echo -e "$title\n$author\n$date\nhttp://www.aljazeera.com/indepth/opinion/$sub/$name.html\n" > $sub/$name.txt
     sed -n -f ../plain.pattern $i | sed -f "$WD/../ehtml.pattern" >> $sub/$name.txt    
-    echo -e "$title\t$author\t$date\thttp://www.aljazeera.com/indepth/opinion/$sub/$name.html" >> Al_Jazeera.csv
+    echo -e "$title\t$author\t$date\t$name" >> Al_Jazeera.csv
 done
 
 # special case
