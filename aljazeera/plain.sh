@@ -13,6 +13,7 @@ function extract_meta {
 
     title=$(sed -n 's/.*"title".*="\(.*\)".*/\1/p' /tmp/metatext)
     author=$(sed -n 's/.*"author".*="\(.*\)".*/\1/p' /tmp/metatext)
+    alpha_date="$(sed -n 's/.*_CreateDate.*=\"\(.*\) \([[:alpha:]]\{3\}\) \([0-9]\{4\}\).*/\3 \2 \1/p' /tmp/metatext)"
     date="$sub/$(sed -n 's/.*_CreateDate.*=\"\(.*\) [[:alpha:]]\{3\} [0-9]\{4\}.*/\1/p' /tmp/metatext)"
 }
 
@@ -26,8 +27,10 @@ for i in ../downloads/*/*/*; do
     extract_meta
     if [ "$title" == "" ] || [ "$author" == "" ] || [ "$date" == "" ]; then continue; echo fail; fi
     echo $i
-    echo -e "# TITLE@$title\n# AUTHOR@$author\n# DATE@$date\n# URL@http://www.aljazeera.com/indepth/opinion/$sub/$name.html\n" > $sub/$name.txt
+    echo -e "# TITLE@$title\n# AUTHOR@$author\n# DATE@$alpha_date\n# URL@http://www.aljazeera.com/indepth/opinion/$sub/$name.html\n" > $sub/$name.txt
     sed -n -f ../plain.pattern $i | sed -f "$WD/../ehtml.pattern" >> $sub/$name.txt
+    # kinda buggy for some cases
+    sed -i -f ../plain.pattern $sub/$name.txt
     echo -e "$title\t$author\t$date\t$name" >> "$NAME.csv"
 done
 

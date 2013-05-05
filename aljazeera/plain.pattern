@@ -3,5 +3,5 @@ s/\r//g
 /<em><strong>/d
 s/<br \/>/\n/g
 /<p/s/<[^>]*>//pg
-s/  +//g
 s/\t//g
+s/  \+//g
