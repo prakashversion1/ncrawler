@@ -1,0 +1,7 @@
+s/\r//g
+/<strong><em>/d
+/<em><strong>/d
+s/<br \/>/\n/g
+/<p/s/<[^>]*>//pg
+s/\t//g
+s/  \+//g

@@ -25,7 +25,7 @@ for i in ../downloads/*/*/*; do
 
     #meta-data
     extract_meta
-    if [ "$title" == "" ] || [ "$author" == "" ] || [ "$date" == "" ]; then continue; echo fail; fi
+    if [ "$title" == "" ] || [ "$author" == "" ] || [ "$date" == "" ]; then echo fail; continue; fi
     echo $i
     echo -e "# TITLE@$title\n# AUTHOR@$author\n# DATE@$alpha_date\n# URL@http://www.aljazeera.com/indepth/opinion/$sub/$name.html\n" > $sub/$name.txt
     sed -n -f ../plain.pattern $i | sed -f "$WD/../ehtml.pattern" >> $sub/$name.txt

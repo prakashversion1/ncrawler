@@ -16,4 +16,4 @@ Download the News Editorials & Opinon and make the CVS file with `[TAB]` as deli
 
 #### How-to Use
 
-    $ make [ list | download | final | dist ]
+    $ make [ list | download | final | dist | reset ]

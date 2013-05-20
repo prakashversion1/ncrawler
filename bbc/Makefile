@@ -1,17 +1,16 @@
 NAME=`basename $(PWD)`
 
 all:
-	@echo "make [index|download|final|dist|clean|reset]"
-
+	@echo "make [index|download|fina|dist|clean|reset]"
 index:
 	./index.sh
-	echo -e "`date`\tindex" >> $(NAME).log
+	echo -e "`date`\tindex" >> $(NAME).log 
 
 download: downloads index
 	./download.sh
-	echo -e "`date`\tdownload" >> $(NAME).log
+	echo -e "`date`\tdownload" >> $(NAME).log 
 
-final: downloads
+fina: downloads
 	./plain.sh
 	echo -e "`date`\tplain" >> $(NAME).log
 
@@ -25,4 +24,4 @@ clean: final
 	rm -rf final
 
 reset:
-	rm -rf *.list *.7z final downloads index *.log
+	rm -rf *.list *.7z final downloads index *.log	
