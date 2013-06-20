@@ -19,5 +19,5 @@ echo ----------------------------
 
 for i in /tmp/wget*.log; do
     tail -1 $i
-    echo
+    echo $i
 done

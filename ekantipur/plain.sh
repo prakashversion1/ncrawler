@@ -12,6 +12,7 @@ function extract_data {
     sed '/<h2>/,/img src="http:..ekantipur.com.images.btn-complain-np.gif"/p'  -n $i > /tmp/data
 
     title=$(sed -n 's/.h2.\(.*\)..h2./\1/p' /tmp/data)
+    author="NULL"
     # alpha_date="$(sed -n 's/.*_CreateDate.*=\"\(.*\) \([[:alpha:]]\{3\}\) \([0-9]\{4\}\).*/\3 \2 \1/p' /tmp/metatext)"
     date=$(echo $i | cut -b 14-23)
     alpha_date=$(date -d "$date" "+%Y %b %d")
